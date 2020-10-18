@@ -7,6 +7,9 @@ RUN echo 'http://dl-cdn.alpinelinux.org/alpine/edge/community' >> /etc/apk/repos
 RUN echo 'http://dl-cdn.alpinelinux.org/alpine/edge/main' >> /etc/apk/repositories
 RUN apk update && apk add --update tvheadend git mono && rm -rf /var/cache/apk/*
 
+RUN echo "[INFO] Installing vlan"
+RUN apk add vlan
+
 RUN echo "[INFO] Starting TVHeadend"
 COPY run.sh /run.sh
 RUN chmod +x /run.sh
